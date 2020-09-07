@@ -18,7 +18,7 @@ export default new Vuex.Store({
   },
   actions: {
     async getCollection() {
-      return (await DB.collection("cafes").where("city", "==", "Kiev").get()).docs;
+      return (await DB.collection("cafes").orderBy("city", ).get()).docs;
     },
     async setCollection({dispatch}, cafe) {
       return await DB.collection("cafes").add(cafe);
