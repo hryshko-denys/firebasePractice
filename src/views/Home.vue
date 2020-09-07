@@ -66,12 +66,14 @@ export default {
       };
 
       await this.$store.dispatch("setCollection", cafe);
+      this.categories.push(cafe);
 
       this.currentName = "";
       this.currentCity = "";
     },
     async onDelete(id) {
       await this.$store.dispatch("deleteCollection", id);
+      this.categories = this.categories.filter(category => category.id !== id);
     }
   }
 };
